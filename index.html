@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>run21</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">Run21</h1>
+            <p class="lead">A Healthy competition of the three VillaRunners trying to reach in the first place to the glory of the 2021kms in 2021!</p>
+            <hr class="my-2">
+            <p>Current status</p>
+            <p class="lead">
+                <div class="progress mb-2" style="height: 70px;">
+                    <div id="fq" class="progress-bar bg-info" role="progressbar" style="width: 0%" >JORGE</div>
+                  </div>
+                <div class="progress mb-2" style="height: 70px;">
+                    <div id="rq" class="progress-bar bg-danger" role="progressbar" style="width: 0%" >RICKY</div>
+                    
+                  </div>
+                  <div class="progress" style="height: 70px;">
+                    <div id="bm" class="progress-bar bg-warning" role="progressbar" style="width: 0%" >BRUNO</div>
+                  </div>
+                  
+            </p>
+            <form class="row row-cols-lg-auto g-3 align-items-center">
+                <div class="col-12">
+                  <label class="visually-hidden" for="inlineFormInputGroupUsername">secret</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="txtSecret" placeholder="secret">
+                  </div>
+                </div>
+                <div class="col-12">
+                    <label class="visually-hidden" for="inlineFormInputGroupUsername">kms</label>
+                    <div class="input-group">
+                      <input type="number" class="form-control" id="txtKm" placeholder="kms">
+                    </div>
+                  </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">run for it!</button>
+                </div>
+              </form>
+        </div>
+        
+    </div>
+
+    
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBu4hR3FlHyJnF7qC7frBXy6GI0niDYWc0",
+        authDomain: "run21-bba82.firebaseapp.com",
+        projectId: "run21-bba82",
+        storageBucket: "run21-bba82.appspot.com",
+        messagingSenderId: "763782590038",
+        appId: "1:763782590038:web:c7a5cfa6e85f9c54c015f7",
+        measurementId: "G-MT7M3SHN5C",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      const db = firebase.firestore();
+      let data ={}
+      let rq = 0, fq = 0, bm=0
+      const docRef = db.collection("runners");
+      docRef.get().then(function (doc) {
+        doc.forEach(function(doc) {
+            const data = doc.data()
+            document.querySelector(`#${doc.id}`).innerHTML = `${data.name}<br>${data.kms} kms<br>${(data.kms/2021*100).toFixed(2)}%`
+            document.querySelector(`#${doc.id}`).style.width = `${data.kms/2021*100}%`
+
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+       
+        document.querySelector('form').addEventListener('submit', (event) => {
+            event.preventDefault()
+
+            const txtSecret = document.querySelector('#txtSecret').value
+            const txtKm = +document.querySelector('#txtKm').value
+
+            docRef.get().then(function (doc) {
+                let found = false
+                doc.forEach(function(doc) {
+                const data = doc.data()
+                if(data.secret === txtSecret) {
+                    const newValue = data.kms + txtKm
+                    doc.ref.update({kms: newValue})
+                    found=true
+                    setTimeout(function(){ location.reload() }, 1000);
+                    
+                    
+                }
+                
+                });
+                if(!found) {
+                    alert('Secret not found!');
+                }
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
+            });
+           
+        })
+
+
+    </script>
+  </body>
+</html>
