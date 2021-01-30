@@ -12,7 +12,29 @@
             <h1 class="display-3">Run21</h1>
             <p class="lead">A healthy competition of three VillaRunners trying to reach in the first place to the glory of the 2021kms in 2021!</p>
             <hr class="my-2">
-            <p>Current status</p>
+            <!--<p class="lead">
+              <a class="btn btn-primary btn-lg" href="#" role="button">Rules</a>
+            </p>-->
+            <div class="row">
+              <div class="col-2">
+             
+                <select id="sltMonths" class="form-select" aria-label="Default select example">
+                  <option value="all" selected>ALL MONTHS</option>
+                  <option value="jan">JANUARY</option>
+                  <option value="fev">FEBRUARY</option>
+                  <option value="mar">MARCH</option>
+                  <option value="apr">APRIL</option>
+                  <option value="may">MAY</option>
+                  <option value="jun">JUNE</option>
+                  <option value="jul">JULY</option>
+                  <option value="aug">AUGUST</option>
+                  <option value="sep">SEPTEMBER</option>
+                  <option value="oct">OCTOBER</option>
+                  <option value="nov">NOVEMBER</option>
+                  <option value="dec">DECEMBER</option>
+                </select></div>
+            </div>
+            
             <p class="lead">
                 <div class="progress mb-2" style="height: 70px;">
                     <div id="fq" class="progress-bar bg-info" role="progressbar" style="width: 0%" >JORGE</div>
@@ -48,7 +70,19 @@
         <table class="table table-sm">
           <thead>
             <tr>
-              <th scope="col">Name</th>
+              <th scope="col">KMS</th>
+              <th scope="col">JAN</th>
+              <th scope="col">FEB</th>
+              <th scope="col">MAR</th>
+              <th scope="col">APR</th>
+              <th scope="col">MAY</th>
+              <th scope="col">JUN</th>
+              <th scope="col">JUL</th>
+              <th scope="col">AUG</th>
+              <th scope="col">SEP</th>
+              <th scope="col">OCT</th>
+              <th scope="col">NOV</th>
+              <th scope="col">DEC</th>                            
               <th scope="col">200k</th>
               <th scope="col">400k</th>
               <th scope="col">600k</th>
@@ -75,6 +109,18 @@
               <td>-</td>
               <td>-</td>
               <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
               <td>0 pts</td>
             </tr>
             <tr>
@@ -89,11 +135,25 @@
               <td>-</td>
               <td>-</td>
               <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
               <td>0 pts</td>
             </tr>
             <tr class="table-success">
               <th scope="row">BRUNO</th>
-              <td><img src="images/medal.png" style="width:25px; height:25px" alt=""></td>
+              <td>-
+                <!--<img src="images/medal.png" style="width:25px; height:25px" alt="">-->
+              </td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
@@ -103,7 +163,19 @@
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td>5 pts</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3</td>             
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3 pts</td>
             </tr>
           </tbody>
         </table>
@@ -138,14 +210,29 @@
       firebase.analytics();
 
       const db = firebase.firestore();
-      let data ={}
-      let rq = 0, fq = 0, bm=0
       const docRef = db.collection("runners");
-      docRef.get().then(function (doc) {
+      
+      
+      document.querySelector('#sltMonths').addEventListener('change', ()=> {
+        getData();
+      })
+      
+      getData()
+
+      function getData() {
+        console.log('entrei');
+        docRef.get().then(function (doc) {
         doc.forEach(function(doc) {
             const data = doc.data()
-            document.querySelector(`#${doc.id}`).innerHTML = `${data.name}<br>${data.kms} kms<br>${(data.kms/2021*100).toFixed(2)}%`
-            document.querySelector(`#${doc.id}`).style.width = `${data.kms/2021*100}%`
+            const month = document.querySelector('#sltMonths').value
+            let kms
+            if(month == 'all') {
+              kms = data.kms
+            } else {
+              kms = data[month]
+            }
+            document.querySelector(`#${doc.id}`).innerHTML = `${data.name}<br>${kms} kms<br>${(kms/2021*100).toFixed(2)}%`
+            document.querySelector(`#${doc.id}`).style.width = `${kms/2021*100}%`
 
         });
     })
@@ -153,19 +240,33 @@
         console.log("Error getting documents: ", error);
     });
        
+      }
+
+      
+
+
         document.querySelector('form').addEventListener('submit', (event) => {
             event.preventDefault()
 
             const txtSecret = document.querySelector('#txtSecret').value
             const txtKm = +document.querySelector('#txtKm').value
 
+
             docRef.get().then(function (doc) {
                 let found = false
                 doc.forEach(function(doc) {
                 const data = doc.data()
                 if(data.secret === txtSecret) {
-                    const newValue = data.kms + txtKm
-                    doc.ref.update({kms: newValue})
+                    //const newValue = data.kms + txtKm
+                    const monthNames = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+            
+                    const month = monthNames[new Date().getMonth()]
+                    const valueMonth = data[month] + txtKm                    
+                    doc.ref.update({[month]: valueMonth})
+                    const acum = data.kms + txtKm                    
+                    doc.ref.update({kms: acum})
+                    
+
                     found=true
                     setTimeout(function(){ location.reload() }, 1000);
                     
