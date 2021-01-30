@@ -9,12 +9,17 @@
   <body>
     <div class="container">
         <div class="jumbotron">
-            <h1 class="display-3">Run21</h1>
+            <h1 class="display-3">
+              <img src="images/logo.png" style="width: 6%; height: 6%;" alt="">
+              Run21
+            </h1>
             <p class="lead">A healthy competition of three VillaRunners trying to reach in the first place to the glory of the 2021kms in 2021!</p>
             <hr class="my-2">
-            <!--<p class="lead">
-              <a class="btn btn-primary btn-lg" href="#" role="button">Rules</a>
-            </p>-->
+            <p class="lead">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Rules
+              </button>
+            </p>
             <div class="row">
               <div class="col-2">
              
@@ -67,6 +72,7 @@
               </form>
         </div>
         <br>
+        <div class="table-responsive">
         <table class="table table-sm">
           <thead>
             <tr>
@@ -179,12 +185,43 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rules</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ol>
+          <li>The RUN21 points system is based on 2 facets: per km made (accumulated) and per month
+          </li>
+          <li>The runner who reaches 2021kms first receives the grand prize of 50 points, the second 25 points and the third 12 points
+          </li>
+          <li>The runner who reaches a 200kms multiple number first receives 3 points, the second 2 points and the third 1 point
+          </li>
+          <li>The runner who does the most kms in a month receives 5 points, the second receives 3 points and the third receives 1. Points are awarded at midnight on the last day of the month.
+          </li>
+        </ol>
+        
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
         
     </div>
 
     
-
-
+   
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
 
@@ -286,5 +323,9 @@
 
 
     </script>
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
   </body>
 </html>
