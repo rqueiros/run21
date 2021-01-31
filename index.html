@@ -247,24 +247,21 @@
       const docRef = db.collection("runners");
       
       
-      document.querySelector('#sltMonths').addEventListener('change', ()=> {
+      const sltMonths = document.querySelector('#sltMonths')
+      sltMonths.selectedIndex = new Date().getMonth() + 1
+      sltMonths.addEventListener('change', ()=> {
         getData();
       })
       
       getData()
 
       function getData() {
-        console.log('entrei');
         docRef.get().then(function (doc) {
         doc.forEach(function(doc) {
             const data = doc.data()
             const month = document.querySelector('#sltMonths').value
-            let kms
-            if(month == 'all') {
-              kms = data.kms
-            } else {
-              kms = data[month]
-            }
+            let kms = month == 'all' ? data.kms : data[month]
+            
             document.querySelector(`#${doc.id}`).innerHTML = `${data.name}<br>${kms} kms<br>${(kms/2021*100).toFixed(2)}%`
             document.querySelector(`#${doc.id}`).style.width = `${kms/2021*100}%`
 
