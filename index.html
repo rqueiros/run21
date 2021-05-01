@@ -1,336 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>run21</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/images/favicons/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-  </head>
-  <body>
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-3">
-              <img src="images/logo.png" style="width: 6%; height: 6%;" alt="">
-              Run21
-            </h1>
-            <p class="lead">A healthy competition of three VillaRunners trying to reach in the first place to the glory of the 2021kms in 2021!</p>
-            <hr class="my-2">
-            <p class="lead">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Rules
-              </button>
-            </p>
-            <div class="row">
-              <div class="col-2">
-             
-                <select id="sltMonths" class="form-select" aria-label="Default select example">
-                  <option value="all" selected>ALL MONTHS</option>
-                  <option value="jan">JANUARY</option>
-                  <option value="feb">FEBRUARY</option>
-                  <option value="mar">MARCH</option>
-                  <option value="apr">APRIL</option>
-                  <option value="may">MAY</option>
-                  <option value="jun">JUNE</option>
-                  <option value="jul">JULY</option>
-                  <option value="aug">AUGUST</option>
-                  <option value="sep">SEPTEMBER</option>
-                  <option value="oct">OCTOBER</option>
-                  <option value="nov">NOVEMBER</option>
-                  <option value="dec">DECEMBER</option>
-                </select></div>
-            </div>
-            
-            <p class="lead">
-                <div class="progress mb-2" style="height: 70px;">
-                  <img src="images/fq.png" style="width: 60px" class="rounded" alt="Cinque Terre">
-                  <div id="fq" class="progress-bar bg-info" role="progressbar" style="width: 0%" >JORGE</div>
-                  </div>
-                <div class="progress mb-2" style="height: 70px;">
-                  <img src="images/rq.png" style="width: 60px" class="rounded" alt="Cinque Terre">
-                  
-                  <div id="rq" class="progress-bar bg-danger" role="progressbar" style="width: 0%" >RICKY</div>
-                    
-                  </div>
-                  <div class="progress" style="height: 70px;">
-                    <img src="images/bm.jpg" style="width: 60px" class="rounded" alt="Cinque Terre">
-                  
-                    <div id="bm" class="progress-bar bg-warning" role="progressbar" style="width: 0%" >BRUNO</div>
-                  </div>
-                  
-            </p>
-            <form class="row row-cols-lg-auto g-3 align-items-center">
-                <div class="col-12">
-                  <label class="visually-hidden" for="inlineFormInputGroupUsername">secret</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="txtSecret" placeholder="secret">
-                  </div>
-                </div>
-                <div class="col-12">
-                    <label class="visually-hidden" for="inlineFormInputGroupUsername">kms</label>
-                    <div class="input-group">
-                      <input type="number" class="form-control" id="txtKm" placeholder="kms">
-                    </div>
-                  </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary">run for it!</button>
-                </div>
-              </form>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>run21</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicons/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-3">
+        <img src="images/logo.png" style="width: 6%; height: 6%;" alt="">
+        Run21
+      </h1>
+      <p class="lead">A healthy competition of three VillaRunners trying to reach in the first place to the glory of the
+        2021kms in 2021!</p>
+      <hr class="my-2">
+      <p class="lead">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Rules
+        </button>
+      </p>
+      <div class="row">
+        <div class="col-2">
+
+          <select id="sltMonths" class="form-select" aria-label="Default select example">
+            <option value="all" selected>ALL MONTHS</option>
+            <option value="jan">JANUARY</option>
+            <option value="feb">FEBRUARY</option>
+            <option value="mar">MARCH</option>
+            <option value="apr">APRIL</option>
+            <option value="may">MAY</option>
+            <option value="jun">JUNE</option>
+            <option value="jul">JULY</option>
+            <option value="aug">AUGUST</option>
+            <option value="sep">SEPTEMBER</option>
+            <option value="oct">OCTOBER</option>
+            <option value="nov">NOVEMBER</option>
+            <option value="dec">DECEMBER</option>
+          </select>
         </div>
-        <br>
-        <div class="table-responsive">
-        <table class="table table-sm">
-          <thead>
-            <tr>
-              <th scope="col">NAMES</th>
-              <th scope="col">JAN</th>
-              <th scope="col">FEB</th>
-              <th scope="col">MAR</th>
-              <th scope="col">APR</th>
-              <th scope="col">MAY</th>
-              <th scope="col">JUN</th>
-              <th scope="col">JUL</th>
-              <th scope="col">AUG</th>
-              <th scope="col">SEP</th>
-              <th scope="col">OCT</th>
-              <th scope="col">NOV</th>
-              <th scope="col">DEC</th>                            
-              <th scope="col">200k</th>
-              <th scope="col">400k</th>
-              <th scope="col">600k</th>
-              <th scope="col">800k</th>
-              <th scope="col">1000k</th>
-              <th scope="col">1200k</th>
-              <th scope="col">1400k</th>
-              <th scope="col">1600k</th>
-              <th scope="col">1800k</th>
-              <th scope="col">2000k</th>
-              <th scope="col">TOTAL</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">JORGE</th>
-              <td>1</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>1 pts</td>
-            </tr>
-            <tr>
-              <th scope="row">RICKY</th>
-              <td>3</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>2</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>5 pts</td>
-            </tr>
-            <tr class="table-success">
-              <th scope="row">BRUNO</th>
-              <td>5
-                <!--<img src="images/medal.png" style="width:25px; height:25px" alt="">-->
-              </td>
-              <td></td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>3</td>             
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>8 pts</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
 
-      <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Rules</h5>
-       </div>
-      <div class="modal-body">
-        <ol>
-          <li>The RUN21 points system is based on 2 facets: per km made (accumulated) and per month
-          </li>
-          <li>The runner who reaches 2021kms first receives the grand prize of 50 points, the second 25 points and the third 12 points
-          </li>
-          <li>The runner who reaches a 200kms multiple number first receives 3 points, the second 2 points and the third 1 point
-          </li>
-          <li>The runner who does the most kms in a month receives 5 points, the second receives 3 points and the third receives 1. Points are awarded at midnight on the last day of the month.
-          </li>
-        </ol>
-        
+      <p class="lead">
+      <div class="progress mb-2" style="height: 70px;">
+        <img src="images/fq.png" style="width: 60px" class="rounded" alt="Cinque Terre">
+        <div id="fq" class="progress-bar bg-info" role="progressbar" style="width: 0%">JORGE</div>
+      </div>
+      <div class="progress mb-2" style="height: 70px;">
+        <img src="images/rq.png" style="width: 60px" class="rounded" alt="Cinque Terre">
+
+        <div id="rq" class="progress-bar bg-danger" role="progressbar" style="width: 0%">RICKY</div>
+
+      </div>
+      <div class="progress" style="height: 70px;">
+        <img src="images/bm.jpg" style="width: 60px" class="rounded" alt="Cinque Terre">
+
+        <div id="bm" class="progress-bar bg-warning" role="progressbar" style="width: 0%">BRUNO</div>
+      </div>
+
+      </p>
+      <form class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+          <label class="visually-hidden" for="inlineFormInputGroupUsername">secret</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="txtSecret" placeholder="secret">
+          </div>
+        </div>
+        <div class="col-12">
+          <label class="visually-hidden" for="inlineFormInputGroupUsername">kms</label>
+          <div class="input-group">
+            <input type="number" class="form-control" id="txtKm" placeholder="kms">
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">run for it!</button>
+        </div>
+      </form>
     </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
+    <br>
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">NAMES</th>
+            <th scope="col">JAN</th>
+            <th scope="col">FEB</th>
+            <th scope="col">MAR</th>
+            <th scope="col">APR</th>
+            <th scope="col">MAY</th>
+            <th scope="col">JUN</th>
+            <th scope="col">JUL</th>
+            <th scope="col">AUG</th>
+            <th scope="col">SEP</th>
+            <th scope="col">OCT</th>
+            <th scope="col">NOV</th>
+            <th scope="col">DEC</th>
+            <th scope="col">200k</th>
+            <th scope="col">400k</th>
+            <th scope="col">600k</th>
+            <th scope="col">800k</th>
+            <th scope="col">1000k</th>
+            <th scope="col">1200k</th>
+            <th scope="col">1400k</th>
+            <th scope="col">1600k</th>
+            <th scope="col">1800k</th>
+            <th scope="col">2000k</th>
+            <th scope="col">TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">JORGE</th>
+            <td>1</td>
+            <td>-</td>
+            <td>-</td>
+            <td>3</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>1</td>
+            <td>-</td>
+            <td>-</td>
+            <td>1</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>6 pts</td>
+          </tr>
+          <tr>
+            <th scope="row">RICKY</th>
+            <td>3</td>
+            <td>-</td>
+            <td>-</td>
+            <td>1</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>2</td>
+            <td>-</td>
+            <td>-</td>
+            <td>3</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>9 pts</td>
+          </tr>
+          <tr class="table-success">
+            <th scope="row">BRUNO</th>
+            <td>5
+              <!--<img src="images/medal.png" style="width:25px; height:25px" alt="">-->
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>5</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>3</td>
+            <td>-</td>
+            <td>-</td>
+            <td>2</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>10 pts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Rules</h5>
+          </div>
+          <div class="modal-body">
+            <ol>
+              <li>The RUN21 points system is based on 2 facets: per km made (accumulated) and per month
+              </li>
+              <li>The runner who reaches 2021kms first receives the grand prize of 50 points, the second 25 points and
+                the third 12 points
+              </li>
+              <li>The runner who reaches a 200kms multiple number first receives 3 points, the second 2 points and the
+                third 1 point
+              </li>
+              <li>The runner who does the most kms in a month receives 5 points, the second receives 3 points and the
+                third receives 1. Points are awarded at midnight on the last day of the month.
+              </li>
+            </ol>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
-</div>
-        
-    </div>
 
-    
-   
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
 
-    <script>
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      var firebaseConfig = {
-        apiKey: "AIzaSyBu4hR3FlHyJnF7qC7frBXy6GI0niDYWc0",
-        authDomain: "run21-bba82.firebaseapp.com",
-        projectId: "run21-bba82",
-        storageBucket: "run21-bba82.appspot.com",
-        messagingSenderId: "763782590038",
-        appId: "1:763782590038:web:c7a5cfa6e85f9c54c015f7",
-        measurementId: "G-MT7M3SHN5C",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyBu4hR3FlHyJnF7qC7frBXy6GI0niDYWc0",
+      authDomain: "run21-bba82.firebaseapp.com",
+      projectId: "run21-bba82",
+      storageBucket: "run21-bba82.appspot.com",
+      messagingSenderId: "763782590038",
+      appId: "1:763782590038:web:c7a5cfa6e85f9c54c015f7",
+      measurementId: "G-MT7M3SHN5C",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
 
-      const db = firebase.firestore();
-      const docRef = db.collection("runners");
-      
-      
-      const sltMonths = document.querySelector('#sltMonths')
-      sltMonths.selectedIndex = new Date().getMonth() + 1
-      sltMonths.addEventListener('change', ()=> {
-        getData();
-      })
-      
-      getData()
+    const db = firebase.firestore();
+    const docRef = db.collection("runners");
 
-      function getData() {
-        docRef.get().then(function (doc) {
-        doc.forEach(function(doc) {
-            const data = doc.data()
-            const month = document.querySelector('#sltMonths').value
-            let kms = month == 'all' ? data.kms : data[month]
-            
-            document.querySelector(`#${doc.id}`).innerHTML = `${data.name}<br>${kms} kms<br>${(kms/2021*100).toFixed(2)}%`
-            document.querySelector(`#${doc.id}`).style.width = `${kms/2021*100}%`
+
+    const sltMonths = document.querySelector('#sltMonths')
+    sltMonths.selectedIndex = new Date().getMonth() + 1
+    sltMonths.addEventListener('change', () => {
+      getData();
+    })
+
+    getData()
+
+    function getData() {
+      docRef.get().then(function (doc) {
+        doc.forEach(function (doc) {
+          const data = doc.data()
+          const month = document.querySelector('#sltMonths').value
+          let kms = month == 'all' ? data.kms : data[month]
+
+          document.querySelector(`#${doc.id}`).innerHTML = `${data.name}<br>${kms} kms<br>${(kms / 2021 * 100).toFixed(2)}%`
+          document.querySelector(`#${doc.id}`).style.width = `${kms / 2021 * 100}%`
 
         });
+      })
+        .catch(function (error) {
+          console.log("Error getting documents: ", error);
+        });
+
+    }
+
+
+
+
+    document.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault()
+
+      const txtSecret = document.querySelector('#txtSecret').value
+      const txtKm = +document.querySelector('#txtKm').value
+
+
+      docRef.get().then(function (doc) {
+        let found = false
+        doc.forEach(function (doc) {
+          const data = doc.data()
+          if (data.secret === txtSecret) {
+            //const newValue = data.kms + txtKm
+            const monthNames = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+            const month = monthNames[new Date().getMonth()]
+            const valueMonth = data[month] + txtKm
+            doc.ref.update({ [month]: valueMonth })
+            const acum = data.kms + txtKm
+            doc.ref.update({ kms: acum })
+
+
+            found = true
+            setTimeout(function () { location.reload() }, 1000);
+
+
+          }
+
+        });
+        if (!found) {
+          alert('Secret not found!');
+        }
+      })
+        .catch(function (error) {
+          console.log("Error getting documents: ", error);
+        });
+
     })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });
-       
-      }
-
-      
 
 
-        document.querySelector('form').addEventListener('submit', (event) => {
-            event.preventDefault()
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 
-            const txtSecret = document.querySelector('#txtSecret').value
-            const txtKm = +document.querySelector('#txtKm').value
+</body>
 
-
-            docRef.get().then(function (doc) {
-                let found = false
-                doc.forEach(function(doc) {
-                const data = doc.data()
-                if(data.secret === txtSecret) {
-                    //const newValue = data.kms + txtKm
-                    const monthNames = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
-            
-                    const month = monthNames[new Date().getMonth()]
-                    const valueMonth = data[month] + txtKm                    
-                    doc.ref.update({[month]: valueMonth})
-                    const acum = data.kms + txtKm                    
-                    doc.ref.update({kms: acum})
-                    
-
-                    found=true
-                    setTimeout(function(){ location.reload() }, 1000);
-                    
-                    
-                }
-                
-                });
-                if(!found) {
-                    alert('Secret not found!');
-                }
-            })
-            .catch(function(error) {
-                console.log("Error getting documents: ", error);
-            });
-           
-        })
-
-
-    </script>
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
- 
-  </body>
 </html>
